@@ -131,7 +131,7 @@
         .headlines-bar {
             position: fixed;
             left: 0;
-            top: 0;
+            top: 56px;
             bottom: 0;
             width: var(--headline-bar);
             background: var(--static);
@@ -139,31 +139,31 @@
             z-index: 200;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding: 60px 0 20px;
+            align-items: flex-start;
+            padding: 20px 12px;
             overflow: hidden;
         }
 
         .headlines-label {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.55rem;
+            font-size: 0.5rem;
             font-weight: 500;
             letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--signal);
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
+            white-space: nowrap;
         }
 
         .headlines-list {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 8px;
             flex: 1;
             overflow-y: auto;
             scrollbar-width: none;
+            width: 100%;
         }
 
         .headlines-list::-webkit-scrollbar {
@@ -171,17 +171,15 @@
         }
 
         .headlines-item {
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            transform: rotate(180deg);
-            font-size: 0.65rem;
+            font-size: 0.55rem;
             font-weight: 500;
             color: var(--ash);
             cursor: pointer;
             transition: color 0.2s;
             white-space: nowrap;
-            max-height: 180px;
             overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.4;
         }
 
         .headlines-item:hover {
@@ -195,18 +193,16 @@
         .headlines-divider {
             width: 20px;
             height: 1px;
-            background: rgba(255,255,255,0.1);
-            margin: 4px 0;
+            background: rgba(255,255,255,0.08);
+            margin: 2px 0;
         }
 
         .headlines-time {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 0.5rem;
             color: var(--ash);
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            transform: rotate(180deg);
             margin-top: auto;
+            white-space: nowrap;
         }
 
         /* ===== NAV ===== */
@@ -751,17 +747,25 @@
         <aside class="headlines-bar">
             <span class="headlines-label">Headlines</span>
             <ul class="headlines-list">
-                <li class="headlines-item active" onclick="scrollToStory('openai-story')">The Great AI Rebellion</li>
+                <li class="headlines-item active" onclick="scrollToStory('openai-story')">AI Rebellion</li>
                 <li class="headlines-divider"></li>
-                <li class="headlines-item" onclick="scrollToStory('fable-story')">Anthropic ships Fable 5.1</li>
+                <li class="headlines-item" onclick="scrollToStory('openai-story')">OpenAI agents hack HF</li>
                 <li class="headlines-divider"></li>
-                <li class="headlines-item" onclick="scrollToStory('deepseek-story')">DeepSeek Harness: Everything is a plugin</li>
+                <li class="headlines-item" onclick="scrollToStory('openai-story')">Wiki incident revealed</li>
                 <li class="headlines-divider"></li>
-                <li class="headlines-item" onclick="scrollToStory('deepseek-cve')">DeepSeek Harness sandbox escape CVE</li>
+                <li class="headlines-item" onclick="scrollToStory('fable-story')">Fable 5.1 released</li>
                 <li class="headlines-divider"></li>
-                <li class="headlines-item" onclick="scrollToStory('openai-story')">OpenAI agents hack Hugging Face</li>
+                <li class="headlines-item" onclick="scrollToStory('fable-story')">Pricing drops 25%</li>
                 <li class="headlines-divider"></li>
-                <li class="headlines-item" onclick="scrollToStory('fable-story')">Fable 5.1 pricing drops 25%</li>
+                <li class="headlines-item" onclick="scrollToStory('fable-story')">Venus map breakthrough</li>
+                <li class="headlines-divider"></li>
+                <li class="headlines-item" onclick="scrollToStory('deepseek-story')">DeepSeek Harness</li>
+                <li class="headlines-divider"></li>
+                <li class="headlines-item" onclick="scrollToStory('deepseek-story')">Everything is a plugin</li>
+                <li class="headlines-divider"></li>
+                <li class="headlines-item" onclick="scrollToStory('deepseek-cve')">CVE-2026-82533</li>
+                <li class="headlines-divider"></li>
+                <li class="headlines-item" onclick="scrollToStory('deepseek-cve')">Sandbox escape</li>
             </ul>
             <span class="headlines-time">Sept 2026</span>
         </aside>
@@ -774,10 +778,9 @@
                     <span class="nav-logo-text">AI NEWS</span>
                 </a>
                 <div class="nav-links">
-                    <a href="#" class="active">Incidents</a>
-                    <a href="#">Research</a>
-                    <a href="#">Policy</a>
-                    <a href="#">Opinion</a>
+                    <a href="#openai-story" class="active">Stories</a>
+                    <a href="#fable-story">Models</a>
+                    <a href="#deepseek-story">Harness</a>
                 </div>
             </div>
             <div class="nav-live">
