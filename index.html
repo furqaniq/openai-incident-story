@@ -17,7 +17,7 @@
             --alert: #FF3366;
             --signal-dim: rgba(0, 255, 170, 0.1);
             --signal-glow: rgba(0, 255, 170, 0.15);
-            --headline-bar: 60px;
+            --headline-bar: 160px;
         }
 
         * {
@@ -28,6 +28,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 80px;
         }
 
         body {
@@ -146,13 +147,12 @@
 
         .headlines-label {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.5rem;
+            font-size: 0.6rem;
             font-weight: 500;
             letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--signal);
             margin-bottom: 20px;
-            white-space: nowrap;
         }
 
         .headlines-list {
@@ -171,14 +171,11 @@
         }
 
         .headlines-item {
-            font-size: 0.55rem;
+            font-size: 0.6rem;
             font-weight: 500;
             color: var(--ash);
             cursor: pointer;
             transition: color 0.2s;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
             line-height: 1.4;
         }
 
@@ -199,10 +196,9 @@
 
         .headlines-time {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.5rem;
+            font-size: 0.55rem;
             color: var(--ash);
             margin-top: auto;
-            white-space: nowrap;
         }
 
         /* ===== NAV ===== */
